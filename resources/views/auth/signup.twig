@@ -7,17 +7,28 @@
                 <div class="panel-heading">Sign Up</div>
                 <div class="panel-body">
                     <form action="{{ path_for('auth.sign') }}" method="post">
-                        <div class="form-group">
+
+                        <div class="form-group {{ errors.name ? 'has-error' :'' }}">
                             <lable for="email">Name</lable>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control" value="{{ old.name }}" >
+
+                            {% if (errors.name) %}
+                                <span class="help-block">{{ errors.name | first }}</span>
+                            {% endif %}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ errors.email ? 'has-error' :'' }}">
                             <lable for="email">Email</lable>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="you@domain.com">
+                            <input type="email" name="email" id="email" class="form-control" value="{{ old.email }}"  placeholder="you@domain.com">
+                            {% if (errors.email) %}
+                               <span class="help-block"> {{ errors.email | first }}</span>
+                            {% endif %}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ errors.password ? 'has-error' :'' }}">
                             <lable for="password">Password</lable>
                             <input type="password" name="password" id="password" class="form-control">
+                            {% if (errors.password) %}
+                                <span class="help-block"> {{ errors.password | first }}</span>
+                            {% endif %}
                         </div>
                         <button type="submit" class="btn btn-primary">Sign up</button>
                     </form>

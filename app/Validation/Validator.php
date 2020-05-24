@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Validation;
 
 use Respect\Validation\Validator as Respect;
@@ -18,6 +17,8 @@ class Validator
                 $this->errors[$field] = $e->getMessages();
             }
         }
+
+        $_SESSION['errors'] = $this->errors;
 
         return $this;
     }
