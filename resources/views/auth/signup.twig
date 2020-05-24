@@ -1,0 +1,28 @@
+{%  extends 'templates/app.twig' %}
+
+{%  block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Sign Up</div>
+                <div class="panel-body">
+                    <form action="{{ path_for('auth.sign') }}" method="post">
+                        <div class="form-group">
+                            <lable for="email">Name</lable>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <lable for="email">Email</lable>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="you@domain.com">
+                        </div>
+                        <div class="form-group">
+                            <lable for="password">Password</lable>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
